@@ -1,0 +1,43 @@
+{% extends 'header.html' %} 
+{% load static %}
+
+{% block content %}
+ <div class="container-fulid">
+        <div class="row pt-5 justify-content-evenly">
+            <div class="col-4  pt-5">
+               <h1> welcome ! </h1>
+               <p>
+                quick test app is an online portal used to practice multiple choice questions for computer science and
+                computer fundimatals the answers of the  multiple choice questions are stored in databse and results of 
+                test will be gentatred immidiatley after you finish the exemination
+               </p>
+            </div>
+            <div class="col-5">
+                <form  action="accountCreation" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" >
+                      
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputusername" class="form-label">User Name</label>
+                        <input type="text" class="form-control" name="username" aria-describedby="userHelp">   
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="Password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label"> Conform Password</label>
+                        <input type="password" class="form-control" name="Password2">
+                      </div>
+
+                    <button type="submit" class="btn btn-primary align-self-center">Create Account</button>
+                  </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
