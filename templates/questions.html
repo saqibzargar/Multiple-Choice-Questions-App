@@ -1,0 +1,55 @@
+{% extends 'header.html' %} 
+
+{% block user %}
+
+                  <li class="nav-item align-item-right">
+                    <a class="nav-link" href="#">{{usr.username}}</a>
+                  </li>
+                  <li class="nav-item align-item-right">
+                    <a class="nav-link" href="#">logout</a>
+                  </li>
+{% endblock user %}
+
+  {% block content %}
+  
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-8 p-5 ml-5">
+          <form action=" submit " method="POST">
+              {% csrf_token %} 
+              
+                  <h6> <b> Question {{Qno.value}}: </b> <br>{{res.questionText}}  </h6>
+               
+              1. <input type="radio" name="answer" value="{{res.opt1 }}"><small> {{res.opt1 }} </small> <br> <br>
+              2. <input type="radio" name="answer" value="{{res.opt2 }}"><small> {{res.opt2 }} </small> <br><br>
+              3. <input type="radio" name="answer" value="{{res.opt3 }}"><small> {{res.opt3 }}</small> <br><br>
+              4. <input type="radio" name="answer" value="{{res.opt4 }}"><small> {{res.opt4 }} </small> <br>
+              <div class="row mt-3 p-3">
+                <div class="col-12">
+                  <input type="submit" value="submit answer " class=" bg-success border rounded-3 text-white p-1">
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-6">
+                  <a href="{{'previous'}}"> <input type="button" class=" bg-danger border rounded-3 text-white p-1" value="prev"></a>
+                </div>
+                <div class="col-6">
+                  <a href="{{'next'}}"> <input type="button" class=" bg-danger border rounded-3 text-white p-1" value="next"></a>
+                 
+                </div>
+              </div>
+              
+              <div class="row align-items-right p-3">
+                <div class="col-12">
+                  <a href="{{'finish'}}"> <input type="button" class="bg-primary border rounded-3 text-white p-1" value="finish"></a>
+                </div>
+              </div>
+              
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endblock  %}
+
+    
